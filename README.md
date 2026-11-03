@@ -39,3 +39,11 @@ npm run preview
 `localStorage` хранится отдельно в профиле каждого браузера на каждом устройстве. Поэтому данные не синхронизируются между компьютером и телефоном и могут исчезнуть при очистке данных сайта или смене браузерного профиля. Размещение приложения на Vercel само по себе этого не меняет: Vercel публикует файлы сайта, но не хранит пользовательскую историю.
 
 Для синхронизации нужен сервер хранения данных (например, облачная база) и обычно авторизация пользователя. Это можно сделать на бесплатном тарифе подходящего сервиса, внимательно проверив его текущие ограничения; платные сервисы в проект не подключены. После подключения данные нужно будет переносить из локального хранилища в базу. До этого используйте журнал в том же браузере и на том же устройстве.
+
+## GitHub Pages
+
+Workflow `.github/workflows/static.yml` builds the project on pushes to `main` and publishes `dist` through GitHub Pages. For this repository (`rabochiy-zhurnal2.0`), Vite uses the `/rabochiy-zhurnal2.0/` base path only in the Pages workflow; local development and Vercel keep `/`.
+
+To enable deployment once, open **Settings → Pages** in the repository and select **GitHub Actions** as the build and deployment source. Then push the workflow and source files to `main`. The deployment URL will appear in the workflow run and the Pages settings.
+
+
